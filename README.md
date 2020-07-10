@@ -33,3 +33,19 @@ kubectl create -f kubernetes/services/go-nodeport.yaml
 kubectl create -f kubernetes/pods/go-pod.yaml
 ```
 http://localhost:31000/pingへアクセス
+
+## Deploymentのデプロイ
+```
+kubectl create -f kubernetes/deployments/go-deployment.yaml
+kubectl get deployments
+kubectl get pods
+
+kubectl create -f kubernetes/services/go-loadbarancer.yaml
+```
+http://localhost:8080/pingへアクセス
+
+## redines liveness
+
+## リリース
+
+
