@@ -41,6 +41,9 @@ kubectl get deployments
 kubectl get pods
 
 kubectl create -f kubernetes/services/go-loadbarancer.yaml
+
+kubectl delete -f kubernetes/deployments/go-deployment.yaml
+kubectl delete -f kubernetes/services/go-loadbarancer.yaml 
 ```
 http://localhost:8080/pingへアクセス
 
