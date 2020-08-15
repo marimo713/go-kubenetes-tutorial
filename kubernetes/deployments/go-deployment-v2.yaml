@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-kube
+  template:
+    metadata:
+      labels:
+        app: go-kube
+    spec:
+      containers:
+        - name: go-kube
+          image: marimoex/go_kube:2.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 8080
+              scheme: HTTP
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 2
+            initialDelaySeconds: 5
+            periodSeconds: 5

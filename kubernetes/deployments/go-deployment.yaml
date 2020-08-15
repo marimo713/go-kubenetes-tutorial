@@ -12,9 +12,20 @@ spec:
       labels:
         app: go-kube
     spec:
+      restartPolicy: Always
       containers:
         - name: go-kube
           image: marimoex/go_kube:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
+        #   livenessProbe:
+        #     httpGet:
+        #       path: /healthcheck
+        #       port: 8080
+        #       scheme: HTTP
+        #     timeoutSeconds: 1
+        #     successThreshold: 1
+        #     failureThreshold: 2
+        #     initialDelaySeconds: 5
+        #     periodSeconds: 5
